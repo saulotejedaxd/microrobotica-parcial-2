@@ -1,0 +1,26 @@
+# Entornos y caches de Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# Compilacion de Arduino y C/C++
+build/
+*.o
+*.elf
+*.hex
+*.map
+# Archivos locales, credenciales y editores
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+# Mediciones generadas: agregar deliberadamente si se requieren como evidencia
+mediciones_motor*.csv
