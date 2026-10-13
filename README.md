@@ -9,7 +9,8 @@ Repositorio organizado en Firmware, Simulacion, README.md y .gitignore.
 ```text
 microrobotica-parcial-2/
 ├── Firmware/
-│   └── control_motor/
+│   ├── control_motor/
+│   └── Commi2_Motor/
 ├── Simulacion/
 ├── README.md
 └── .gitignore
@@ -25,8 +26,9 @@ gráficas y pruebas. No se recibió un proyecto de simulación mecánica o de ci
 | Commit / etiqueta | Carpeta de origen | Contenido |
 |---|---|---|
 | 1 | `control_motor` | Control inicial con potenciómetro, LCD y encoder; conserva la configuración original de esta versión. |
+| 2 | `Commi2_Motor` | Firmware con HOME, 880 cuentas/vuelta y protocolo PC. La carpeta recibida contiene únicamente el sketch. |
 
-Los commits se incorporaron en ese orden, con etiquetas `v1` a `v1`.
+Los commits se incorporaron en ese orden, con etiquetas `v1` a `v2`.
 Son instantáneas importadas de las carpetas proporcionadas: las fechas de Git
 corresponden a la importación, no a fechas de desarrollo reconstruidas.
 Las versiones anteriores permanecen disponibles en sus carpetas y en el historial.
