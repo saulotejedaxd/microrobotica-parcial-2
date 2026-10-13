@@ -11,7 +11,8 @@ microrobotica-parcial-2/
 ├── Firmware/
 │   ├── control_motor/
 │   ├── Commi2_Motor/
-│   └── Commit3_Motor/
+│   ├── Commit3_Motor/
+│   └── Commit4_ControlMotor/
 ├── Simulacion/
 ├── README.md
 └── .gitignore
@@ -29,8 +30,9 @@ gráficas y pruebas. No se recibió un proyecto de simulación mecánica o de ci
 | 1 | `control_motor` | Control inicial con potenciómetro, LCD y encoder; conserva la configuración original de esta versión. |
 | 2 | `Commi2_Motor` | Firmware con HOME, 880 cuentas/vuelta y protocolo PC. La carpeta recibida contiene únicamente el sketch. |
 | 3 | `Commit3_Motor` | Firmware y panel Python con nueve perfiles, previsualización, telemetría y exportación CSV. |
+| 4 | `Commit4_ControlMotor` | Entrega final recibida. Sus archivos de programa son idénticos a la entrega 3; cambia el empaquetado original. |
 
-Los commits se incorporaron en ese orden, con etiquetas `v1` a `v3`.
+Los commits se incorporaron en ese orden, con etiquetas `v1` a `v4`.
 Son instantáneas importadas de las carpetas proporcionadas: las fechas de Git
 corresponden a la importación, no a fechas de desarrollo reconstruidas.
 Las versiones anteriores permanecen disponibles en sus carpetas y en el historial.
@@ -68,11 +70,11 @@ Abre únicamente el sketch de la versión elegida; selecciona Arduino UNO y
 el puerto correcto en Arduino IDE. No mezcles varios sketches de entregas
 distintas en una sola carpeta de compilación.
 
-## Ejecutar la entrega 3
+## Ejecutar la entrega 4
 
-1. Carga [`Firmware/Commit3_Motor/motor_perfiles/motor_perfiles.ino`](Firmware/Commit3_Motor/motor_perfiles/motor_perfiles.ino).
+1. Carga [`Firmware/Commit4_ControlMotor/motor_perfiles/motor_perfiles.ino`](Firmware/Commit4_ControlMotor/motor_perfiles/motor_perfiles.ino).
 2. Cierra el Monitor Serie y Serial Plotter.
-3. Ejecuta [`Simulacion/Commit3_Motor/instalar_y_abrir.bat`](Simulacion/Commit3_Motor/instalar_y_abrir.bat).
+3. Ejecuta [`Simulacion/Commit4_ControlMotor/instalar_y_abrir.bat`](Simulacion/Commit4_ControlMotor/instalar_y_abrir.bat).
 4. Selecciona el puerto y pulsa **Conectar**. Abrir USB puede reiniciar UNO;
    vuelve a guardar HOME si se pierde.
 5. Elige un perfil y pulsa **INICIAR**. Para cambiarlo durante una prueba,
@@ -86,11 +88,11 @@ Perfiles: constante, rampa lineal, trapezoidal, senoidal, cuadrada, potencia
 (llamada exponencial en la guía original), gaussiano, diente de sierra y ruido
 uniforme muestreado. Los parámetros se expresan en RPM y RPM/s.
 
-![Panel y vista previa](Simulacion/Commit3_Motor/vista_panel.png)
+![Panel y vista previa](Simulacion/Commit4_ControlMotor/vista_panel.png)
 
 La imagen es una vista del panel, no una prueba del seguimiento físico.
 Para detalles de controles y fórmulas, consulta el
-[LEEME de la entrega](Simulacion/Commit3_Motor/LEEME.md), teniendo en cuenta que
+[LEEME de la entrega](Simulacion/Commit4_ControlMotor/LEEME.md), teniendo en cuenta que
 conserva las rutas internas del paquete original.
 
 ## Controles físicos de las últimas entregas
@@ -104,3 +106,15 @@ conserva las rutas internas del paquete original.
 
 La calibración de las últimas entregas es 880 cuentas/vuelta. Las ganancias,
 alimentación y seguimiento deben validarse con el motor real.
+
+## Alcance de esta importación
+
+Los programas de Commit3_Motor y Commit4_ControlMotor recibidos son iguales;
+se preservan ambas entregas y se documenta esa equivalencia. No se atribuye
+a la cuarta carpeta una corrección que no esté en sus archivos. En particular,
+estos originales mantienen la detección anterior de ausencia de pulsos cerca
+de cero; la corrección posterior del gaussiano del chat no se incorpora sin
+formar parte de estas cuatro carpetas.
+
+Los archivos VERIFICACION.txt se conservan como documentación recibida.
+Este repositorio no afirma que se haya probado el motor físico al importarlo.

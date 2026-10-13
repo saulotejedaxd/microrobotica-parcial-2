@@ -1,0 +1,38 @@
+Verificación realizada el 12 de octubre de 2026
+
+Firmware motor_perfiles.ino:
+- Compilado y enlazado con AVR GCC 7.3.0, Arduino AVR core 1.8.8.
+- ATmega328P, 16 MHz, Arduino UNO.
+- Flash: 21890 bytes. Variables globales/estáticas: 1306 bytes.
+- Librerías Wire y hd44780.
+
+Pruebas automatizadas de Python: 7 grupos, todos correctos.
+- Nueve perfiles y límites de RPM.
+- Rampa ascendente/descendente, meseta y repetición.
+- Senoidal, cuadrada, sierra, gaussiana, potencia y ruido reproducible.
+- Rechazo de NaN, infinitos, tiempos inválidos y telemetría inválida.
+
+Firmware real compilado también para una prueba nativa con E/S simuladas:
+- No arranca sin orden explícita y referencia reciente.
+- SET no reanuda después de STOP.
+- Timeout de comunicación, ausencia de encoder y límites de rampa.
+- D4/D7/D10 tienen prioridad; D10 sin HOME también cancela PC.
+- Guardar cero no arranca al soltar el botón.
+- HOME físico tolera órdenes PC tardías; HOME remoto exige enlace.
+- Se conservan 880 cuentas/vuelta y recorrido 0..360 grados.
+- Al entrar en margen de posición se corta salida sin esperar RPM cero.
+- Regresión gaussiana: cola sin movimiento debajo de 5 RPM reproduce el
+  fallo en la versión anterior y pasa con la corrección (modelo de prueba,
+  no modelo mecánico calibrado). Incluye inicio y final del pulso.
+- Una salida de potencia alta sin pulsos sigue disparando fallo aunque
+  la referencia sea baja. También pasa la prueba de atasco a 100 RPM.
+
+Panel Tk probado con puerto simulado:
+- Arranque explícito, paro, cancelación por botones y reinicio de Arduino.
+- Un error de modo por una orden tardía no envía un STOP que cancele HOME físico.
+- Vista previa y diseño inspeccionados visualmente.
+- Entorno Python 3.14 y pyserial 3.5 preparado en la carpeta local.
+
+No se abrió el puerto del motor, no se cargó firmware al Arduino y no se
+probó movimiento físico. Falta validar sentido del encoder, respuesta PI,
+potencia de apoyo y calibración de 880 cuentas con el equipo del usuario.
